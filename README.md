@@ -29,11 +29,38 @@ def roll():
     roll = random.randint(min_value, max_value)
     return roll
 ```
+### Main Game Loop
 
+```pyhton
+while max(player_scores) < max_score:
+    for index_players in range(players):
+        print(f"\nPlayer {index_players + 1} is playing\n")
+        print(f"Your current score is: {player_scores[index_players]}")
+        current_score = 0
+
+        while True:
+            turn = input("Would you like to play further and roll the die again? (yes/no): ")
+            if turn.lower() != 'yes':
+                break
+
+            value = roll()
+            if value == 1:
+                print("You rolled a 1, no score for this turn")
+                current_score = 0
+                break
+            else:
+                current_score += value
+                print(f"You rolled a {value}")
+
+            print(f"Your current score is: {current_score}")
+        
+        player_scores[index_players] += current_score
+        print(f"Your total score is: {player_scores[index_players]}")
+```
 
 ### EXAMPLE OUTPUT 
 
-```python
+```bash
 Enter the number of players (1-4): 2
 
 Player 1 is playing
