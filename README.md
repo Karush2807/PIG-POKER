@@ -31,7 +31,7 @@ def roll():
 ```
 ### Main Game Loop
 
-```pyhton
+```python
 while max(player_scores) < max_score:
     for index_players in range(players):
         print(f"\nPlayer {index_players + 1} is playing\n")
@@ -56,7 +56,7 @@ while max(player_scores) < max_score:
         
         player_scores[index_players] += current_score
         print(f"Your total score is: {player_scores[index_players]}")
-```
+
 
 ### EXAMPLE OUTPUT 
 
