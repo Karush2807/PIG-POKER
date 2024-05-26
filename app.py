@@ -1,57 +1,57 @@
 import random
 
-#main function for the game
+# Main function to simulate the roll of a die
 def roll():
-    min_value=1
-    max_value=6
-    roll= random.randint(min_value, max_value)
+    min_value = 1  # Minimum value of the die
+    max_value = 6  # Maximum value of the die
+    roll = random.randint(min_value, max_value)  # Generate a random number between min_value and max_value
     return roll
 
-
-# value=roll()
+# Uncomment below lines to test the roll function
+# value = roll()
 # print(value)
 
+# Loop to get the number of players
 while True:
-    players=input("enter the number of players(1-4): ")
+    players = input("Enter the number of players (1-4): ")
     
-    #loop initiated to take proper number of players playing input
+    # Check if the input is a digit
     if players.isdigit():
-        players=int(players)
+        players = int(players)
 
-        if 1<=players<4:
-            break #ye first-wale if loop se break hoke, bahar aajayga
+        # Check if the number of players is between 1 and 4
+        if 1 <= players <= 4:
+            break  # Exit the loop if valid input
         else:
-            print("Players input, must be between 1-4")
+            print("Players input must be between 1-4")
     else:
-        print("invalid, input!!")
+        print("Invalid input!!")
     
-max_score=100 #the max score is decided, a player can achieve
-player_scores=[0 for _ in range(players)] #generated an empty list
+max_score = 100  # The max score a player can achieve
+player_scores = [0 for _ in range(players)]  # Initialize scores for all players to 0
 
-while max(player_scores)<max_score:
-
+# Loop until any player reaches the max score
+while max(player_scores) < max_score:
     for index_players in range(players):
-        print(f"\nPlayer {index_players+1} is playing\n")
-        print(f"you current score is: {player_scores[index_players]}")
-        current_score=0
+        print(f"\nPlayer {index_players + 1} is playing\n")
+        print(f"Your current score is: {player_scores[index_players]}")
+        current_score = 0  # Reset current score for the player's turn
 
         while True:
+            turn = input("Would you like to play further and roll the die again? (yes/no): ")
+            if turn.lower() != 'yes':
+                break  # Exit the loop if the player chooses not to roll again
 
-            turn=input("Would u like to play further and roll the die again?(yes/no): ")
-            if turn.lower()!='yes':
-                break
-
-            value=roll()
-            if value==1:
+            value = roll()  # Roll the die
+            if value == 1:
                 print("You rolled a 1, no score for this turn")
-                current_score=0
+                current_score = 0  # Reset current score if a 1 is rolled
                 break
-            
             else:
-                current_score+=value
-                print(f"you rolled a {value}")
+                current_score += value  # Add the rolled value to the current score
+                print(f"You rolled a {value}")
 
-            print(f"your current score is: {current_score}")
+            print(f"Your current score is: {current_score}")
         
-        player_scores[index_players]+=current_score
-        print(f"your total score is: {player_scores[index_players]}")
+        player_scores[index_players] += current_score  # Add the current score to the player's total score
+        print(f"Your total score is: {player_scores[index_players]}")  # Print the total score for the player
