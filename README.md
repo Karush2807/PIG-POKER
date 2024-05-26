@@ -29,3 +29,31 @@ def roll():
     roll = random.randint(min_value, max_value)
     return roll
 ```
+
+
+### EXAMPLE OUTPUT 
+
+```python
+Enter the number of players (1-4): 2
+
+Player 1 is playing
+
+Your current score is: 0
+Would you like to play further and roll the die again? (yes/no): yes
+You rolled a 4
+Your current score is: 4
+Would you like to play further and roll the die again? (yes/no): yes
+You rolled a 3
+Your current score is: 7
+Would you like to play further and roll the die again? (yes/no): no
+Your total score is: 7
+
+Player 2 is playing
+
+Your current score is: 0
+Would you like to play further and roll the die again? (yes/no): yes
+You rolled a 1
+You rolled a 1, no score for this turn
+Your total score is: 0
+...
+```
