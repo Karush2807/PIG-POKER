@@ -55,3 +55,7 @@ while max(player_scores) < max_score:
         
         player_scores[index_players] += current_score  # Add the current score to the player's total score
         print(f"Your total score is: {player_scores[index_players]}")  # Print the total score for the player
+
+max_score=max(player_scores)
+winningscore=player_scores.index(max_score)
+print(f"\nPlayer {winningscore + 1} wins with a score of {max_score}")  # Print the winner of the game
